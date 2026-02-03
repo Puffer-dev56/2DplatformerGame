@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     //heath
     public int health;
     private SpriteRenderer spriteRenderer;
-    private int knockback = 100;
+    private int knockback = 200;
 
     //player walk
     private Rigidbody2D rb;
