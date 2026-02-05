@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     //heath
-    public int health;
+    public float Maxhealth;
+    private float health;
+    public Image healthImg;
     private SpriteRenderer spriteRenderer;
     private int knockback = 200;
 
@@ -26,6 +29,9 @@ public class Player : MonoBehaviour
     //player Animation
     private Animator animator;
 
+    //coinCollected
+    public int coin;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,6 +39,7 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         deExtraJump = extraJump;
+        health = Maxhealth;
     }
 
     // Update is called once per frame
@@ -53,6 +60,8 @@ public class Player : MonoBehaviour
             }
         }
         SetAnimation();
+
+        healthImg.fillAmount = health / Maxhealth;
     }
     private void FixedUpdate()
     {
